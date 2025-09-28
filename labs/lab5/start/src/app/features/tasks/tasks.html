@@ -1,0 +1,25 @@
+<div class="flex justify-between items-center mb-6">
+  <h2 class="text-2xl font-bold">任務管理</h2>
+  <div class="flex items-center gap-2">
+    <input class="border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 w-48 placeholder:text-gray-400 dark:placeholder:text-gray-500" placeholder="新任務名稱" [value]="newTitle()" (input)="updateNewTitle($event.target.value)" />
+    <input class="border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 w-32 placeholder:text-gray-400 dark:placeholder:text-gray-500" placeholder="指派人" [value]="newAssignee()" (input)="updateNewAssignee($event.target.value)" />
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition-colors" (click)="addTask()">新增</button>
+  </div>
+</div>
+
+<div class="flex justify-between items-center mb-4">
+    <div class="text-sm text-gray-600 dark:text-gray-400">
+        共 {{ total() }} 項，已完成 {{ doneCount() }} 項（完成率 {{ completionRate() }} %）
+    </div>
+    <!-- TODO: Lab 5 - 3. 加入「慶祝完成！」按鈕，並綁定 celebrate() 方法 -->
+</div>
+
+<div class="grid gap-4">
+  @for (task of tasks(); track task.id) {
+    <app-task-item 
+      [task]="task"
+      (toggle)="toggleTask($event)"
+      (delete)="removeTask($event)"
+      />
+  }
+</div>

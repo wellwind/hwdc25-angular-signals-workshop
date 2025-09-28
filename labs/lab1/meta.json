@@ -1,0 +1,7 @@
+{
+  "title": "Lab 1：Signals 核心（state／computed／effect）",
+  "required": [
+    "app/features/tasks/tasks.ts",
+    "app/features/tasks/tasks.html"
+  ]
+}

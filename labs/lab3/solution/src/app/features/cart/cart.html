@@ -1,0 +1,42 @@
+<div class="prose dark:prose-invert max-w-none">
+  <h2>購物車</h2>
+  <p>這是一個 <kbd>linkedSignal</kbd> 的範例，它會根據您的會員等級，自動推薦最優惠的折扣碼。</p>
+  <p>您也可以手動輸入一個折扣碼來覆寫它。但當您的會員等級改變時，系統會再次推薦一個更棒的折扣碼給您！</p>
+  <p>所有折扣碼:</p>
+  <ul>
+    <li>Standard: WELCOME5 (5% off)</li>
+    <li>Gold: GOLD10 (10% off)</li>
+    <li>Platinum: PLATINUM20 (20% off)</li>
+    <li>其他: HELLOWORLD (3% off)</li>
+  </ul>
+</div>
+
+<div class="border-b border-gray-200 dark:border-gray-700 my-6"></div>
+
+<div class="grid md:grid-cols-2 gap-6">
+  <!-- Left side: Controls -->
+  <div>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-transparent dark:border-gray-700">
+      <h3 class="text-xl font-bold mb-4">模擬情境</h3>
+      <p>商品總價: <span class="font-bold">{{ cartTotal() }} 元</span></p>
+
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">模擬變更會員等級</label>
+        <div class="flex rounded-md shadow-sm">
+          <button class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" [class.bg-gray-200]="userLevel() === 'standard'" [class.dark:bg-gray-600]="userLevel() === 'standard'" (click)="setUserLevel('standard')">Standard</button>
+          <button class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" [class.bg-gray-200]="userLevel() === 'gold'" [class.dark:bg-gray-600]="userLevel() === 'gold'" (click)="setUserLevel('gold')">Gold</button>
+          <button class="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" [class.bg-gray-200]="userLevel() === 'platinum'" [class.dark:bg-gray-600]="userLevel() === 'platinum'" (click)="setUserLevel('platinum')">Platinum</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side: Result -->
+  <div>
+    <app-checkout-summary
+      [finalPrice]="finalPrice()"
+      [(discountCode)]="discountCode"
+      (reset)="onDiscountReset()"
+    ></app-checkout-summary>
+  </div>
+</div>

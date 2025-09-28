@@ -1,0 +1,10 @@
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border border-transparent dark:border-gray-700" [class.pulse-animation]="isAnimating()">
+  <div class="flex items-center gap-4">
+    <input type="checkbox" class="h-5 w-5 rounded text-blue-500 focus:ring-blue-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700" [checked]="task().done" (change)="toggle.emit(task().id)" />
+    <h3 class="text-lg" [class.font-semibold]="!task().done" [class.text-gray-500]="task().done" [class.dark:text-gray-400]="task().done" [class.line-through]="task().done">{{ task().title }}</h3>
+  </div>
+  <div class="flex justify-between items-center mt-3">
+    <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold">{{ task().assignee }}</span>
+    <button class="bg-red-500 hover:bg-red-600 text-white text-sm font-bold py-1 px-3 rounded-md transition-colors" (click)="delete.emit(task().id)">刪除</button>
+  </div>
+</div>

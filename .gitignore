@@ -1,0 +1,15 @@
+# Node
+node_modules/
+
+# Angular builds
+dist/
+.angular/
+
+# Lab backups
+.lab-backups/
+
+# Misc
+.DS_Store
+*.log
+*.tmp
+

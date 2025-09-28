@@ -1,0 +1,28 @@
+<div class="flex justify-between items-center mb-6">
+  <h2 class="text-2xl font-bold">任務管理</h2>
+  <div class="flex items-center gap-2">
+    <input class="border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 w-48 placeholder:text-gray-400 dark:placeholder:text-gray-500" placeholder="新任務名稱" [value]="newTitle()" (input)="updateNewTitle($event.target.value)" />
+    <input class="border border-gray-300 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800 w-32 placeholder:text-gray-400 dark:placeholder:text-gray-500" placeholder="指派人" [value]="newAssignee()" (input)="updateNewAssignee($event.target.value)" />
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition-colors" (click)="addTask()">新增</button>
+  </div>
+</div>
+
+<div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+  共 {{ total() }} 項
+  <!-- TODO:，已完成 {{ doneCount() }} 項（完成率 {{ completionRate() }}%）-->
+</div>
+
+<div class="grid gap-4">
+  @for (task of tasks(); track task.id) {
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border border-transparent dark:border-gray-700">
+      <div class="flex items-center gap-4">
+        <input type="checkbox" class="h-5 w-5 rounded text-blue-500 focus:ring-blue-500 border-gray-300 dark:border-gray-600 dark:bg-gray-700" [checked]="task.done" (change)="toggleTask(task.id)" />
+        <h3 class="text-lg" [class.font-semibold]="!task.done" [class.text-gray-500]="task.done" [class.dark:text-gray-400]="task.done" [class.line-through]="task.done">{{ task.title }}</h3>
+      </div>
+      <div class="flex justify-between items-center mt-3">
+        <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold">{{ task.assignee }}</span>
+        <button class="bg-red-500 hover:bg-red-600 text-white text-sm font-bold py-1 px-3 rounded-md transition-colors" (click)="removeTask(task.id)">刪除</button>
+      </div>
+    </div>
+  }
+</div>

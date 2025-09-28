@@ -1,0 +1,22 @@
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-transparent dark:border-gray-700">
+  <h3 class="text-xl font-bold mb-4">結帳資訊</h3>
+
+  <div>
+    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">折扣碼 (可手動輸入)</label>
+    <div class="flex rounded-md shadow-sm">
+      <input
+        type="text"
+        class="w-full border border-gray-300 dark:border-gray-600 rounded-l-md p-2 bg-white dark:bg-gray-800"
+        [value]="discountCode()"
+        (input)="discountCode.set($event.target.value)"
+      />
+      <button class="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" (click)="onResetClick()">重設</button>
+    </div>
+  </div>
+
+  <div class="border-b border-gray-200 dark:border-gray-700 my-6"></div>
+
+  <div class="text-xl text-right">
+    最終價格: <span class="font-bold text-blue-500 dark:text-blue-400">{{ finalPrice() }} 元</span>
+  </div>
+</div>

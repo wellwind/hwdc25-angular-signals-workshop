@@ -1,0 +1,8 @@
+{
+  "title": "Lab 2: Service-level Signal Store & linkedSignal",
+  "required": [
+    "app/features/tasks/tasks.ts",
+    "app/features/tasks/tasks.html",
+    "app/features/tasks/task-store.service.ts"
+  ]
+}

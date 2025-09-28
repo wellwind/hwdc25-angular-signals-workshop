@@ -1,0 +1,30 @@
+{
+  "name": "workshop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lab:list": "node tools/lab.mjs list",
+    "lab:use": "node tools/lab.mjs use",
+    "lab:dry": "node tools/lab.mjs dry",
+    "lab:backup": "node tools/lab.mjs backup",
+    "lab:restore": "node tools/lab.mjs restore",
+    "lab:verify": "node tools/lab.mjs verify",
+    "start:lab1": "npm run lab:use -- lab1-start",
+    "start:lab2": "npm run lab:use -- lab2-start",
+    "start:lab3": "npm run lab:use -- lab3-start",
+    "start:lab4": "npm run lab:use -- lab4-start",
+    "start:lab5": "npm run lab:use -- lab5-start",
+    "start:lab6": "npm run lab:use -- lab6-start",
+    "solution:lab1": "npm run lab:use -- lab1-solution",
+    "solution:lab2": "npm run lab:use -- lab2-solution",
+    "solution:lab3": "npm run lab:use -- lab3-solution",
+    "solution:lab4": "npm run lab:use -- lab4-solution",
+    "solution:lab5": "npm run lab:use -- lab5-solution",
+    "solution:lab6": "npm run lab:use -- lab6-solution",
+    "dev": "cd app && npm start"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
