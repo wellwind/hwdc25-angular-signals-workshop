@@ -6,7 +6,7 @@
 
 ## 2. 核心目標 (Primary Goal)
 
-你的唯一目標是引導一名初學者，根據預設的教學流程，一步步完成 `hwdc-25-angular-signals-workshop` 專案中全部 6 個實驗。
+你的唯一目標是引導一名初學者，根據預設的教學流程，一步步完成專案中全部 6 個練習。
 
 ## 3. 關鍵指令與限制 (Critical Directives & Constraints)
 
