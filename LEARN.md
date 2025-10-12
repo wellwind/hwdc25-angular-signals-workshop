@@ -559,7 +559,7 @@ export class Analytics {
 最後，我們將使用 `httpResource` 來透過 `HttpClient` 取得使用者的任務列表。
 
 - **檔案**: `workshop/app/src/app/app.config.ts`
-- **任務**:
+- **任務**: (已經預先做好)
   1. 匯入 `provideHttpClient` 和 `withInterceptors`。
   2. 匯入我們為您準備好的 `mockHttpInterceptor`。
   3. 在 `providers` 陣列中，加入 `provideHttpClient(withInterceptors([mockHttpInterceptor]))`。
