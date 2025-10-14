@@ -23,8 +23,5 @@
     "solution:lab5": "npm run lab:use -- lab5-solution",
     "solution:lab6": "npm run lab:use -- lab6-solution",
     "dev": "cd app && npm start"
-  },
-  "devDependencies": {
-    "prettier": "^3.6.2"
   }
 }
